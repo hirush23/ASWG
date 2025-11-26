@@ -71,9 +71,25 @@ export function useWallet() {
           hasWallet: true,
           error: null,
         });
+      } else {
+        setState({
+          isConnected: false,
+          address: null,
+          chainId: null,
+          isPolygon: false,
+          isConnecting: false,
+          hasWallet: true,
+          error: null,
+        });
       }
     } catch (error) {
       console.error("Error checking connection:", error);
+      setState((prev) => ({
+        ...prev,
+        hasWallet: true,
+        isConnecting: false,
+        error: "Failed to check connection",
+      }));
     }
   }, []);
 
@@ -97,21 +113,37 @@ export function useWallet() {
       const chainIdNum = parseInt(chainId, 16);
       const isPolygon = chainIdNum === POLYGON_CHAIN_ID || chainIdNum === POLYGON_TESTNET_CHAIN_ID;
 
+      if (accounts.length > 0) {
+        setState({
+          isConnected: true,
+          address: accounts[0],
+          chainId: chainIdNum,
+          isPolygon,
+          isConnecting: false,
+          hasWallet: true,
+          error: null,
+        });
+      } else {
+        setState({
+          isConnected: false,
+          address: null,
+          chainId: null,
+          isPolygon: false,
+          isConnecting: false,
+          hasWallet: true,
+          error: "No accounts available",
+        });
+      }
+    } catch (error) {
       setState({
-        isConnected: true,
-        address: accounts[0],
-        chainId: chainIdNum,
-        isPolygon,
+        isConnected: false,
+        address: null,
+        chainId: null,
+        isPolygon: false,
         isConnecting: false,
         hasWallet: true,
-        error: null,
-      });
-    } catch (error) {
-      setState((prev) => ({
-        ...prev,
-        isConnecting: false,
         error: "Connection rejected",
-      }));
+      });
     }
   }, []);
 
