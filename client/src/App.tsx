@@ -8,12 +8,14 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { WalletButton } from "@/components/wallet-button";
+import { OnboardingGuide } from "@/components/onboarding-guide";
 import NotFound from "@/pages/not-found";
 import LandingPage from "@/pages/landing";
 import DashboardPage from "@/pages/dashboard";
 import HistoryPage from "@/pages/history";
 import AlertsPage from "@/pages/alerts";
 import SettingsPage from "@/pages/settings";
+import DocumentationPage from "@/pages/documentation";
 
 function DashboardLayout({ children }: { children: React.ReactNode }) {
   const style = {
@@ -49,14 +51,16 @@ function Router() {
     return <LandingPage />;
   }
 
-  if (location.startsWith("/dashboard")) {
+  if (location.startsWith("/dashboard") || location === "/docs") {
     return (
       <DashboardLayout>
+        <OnboardingGuide />
         <Switch>
           <Route path="/dashboard" component={DashboardPage} />
           <Route path="/dashboard/history" component={HistoryPage} />
           <Route path="/dashboard/alerts" component={AlertsPage} />
           <Route path="/dashboard/settings" component={SettingsPage} />
+          <Route path="/docs" component={DocumentationPage} />
           <Route component={NotFound} />
         </Switch>
       </DashboardLayout>

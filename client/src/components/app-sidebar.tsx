@@ -50,6 +50,7 @@ const resourceItems = [
     title: "Documentation",
     url: "/docs",
     icon: FileText,
+    external: false,
   },
 ];
 

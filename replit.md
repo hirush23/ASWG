@@ -1,8 +1,8 @@
-# AI Smart Wallet Guardian
+# Smart Wallet Guardian
 
 ## Overview
 
-AI Smart Wallet Guardian is a blockchain security application built for the Polygon network that provides real-time transaction analysis and threat detection for cryptocurrency wallets. The application uses AI-powered risk scoring to analyze smart contract interactions, detect phishing attempts, and identify malicious patterns before transactions are executed. It features a comprehensive dashboard for monitoring wallet security, viewing transaction history, managing security alerts, and configuring protection settings.
+Smart Wallet Guardian is a blockchain security application built for the Polygon network that provides real-time transaction analysis and threat detection for cryptocurrency wallets. The application uses advanced risk scoring algorithms to analyze smart contract interactions, detect phishing attempts, and identify malicious patterns before transactions are executed. It features a comprehensive dashboard for monitoring wallet security, viewing transaction history, managing security alerts, and configuring protection settings.
 
 ## User Preferences
 
@@ -45,7 +45,7 @@ Preferred communication style: Simple, everyday language.
 **Security Analysis Engine**: Multi-layered threat detection system:
 - Smart contract bytecode analysis for honeypot, drainer, and rug pull patterns
 - Phishing domain detection against known scam databases
-- AI-powered risk scoring using OpenAI API (when configured)
+- Advanced risk scoring algorithms
 - Transaction parameter validation and sanitization
 
 ### Data Models
@@ -72,7 +72,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Third-Party Services
 
-**OpenAI API**: Optional integration for AI-powered transaction risk analysis and reasoning generation. Configured via `OPENAI_API_KEY` environment variable.
+**Risk Analysis Engine**: Optional enhanced analysis services can be configured for more detailed transaction risk analysis and reasoning generation.
 
 **Database**: PostgreSQL via Neon serverless driver configured in `drizzle.config.ts`. Schema migrations managed through Drizzle Kit with output directory `./migrations`.
 

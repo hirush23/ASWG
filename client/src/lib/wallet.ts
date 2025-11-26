@@ -19,6 +19,7 @@ export interface WalletState {
   chainId: number | null;
   isPolygon: boolean;
   isConnecting: boolean;
+  hasWallet: boolean;
   error: string | null;
 }
 
@@ -37,20 +38,23 @@ export function useWallet() {
     chainId: null,
     isPolygon: false,
     isConnecting: false,
+    hasWallet: typeof window !== 'undefined' && !!window.ethereum,
     error: null,
   });
 
   const checkConnection = useCallback(async () => {
-    if (!window.ethereum) {
-      setState((prev) => ({ ...prev, error: "MetaMask not installed" }));
+    const hasWallet = typeof window !== 'undefined' && !!window.ethereum;
+    if (!hasWallet) {
+      setState((prev) => ({ ...prev, hasWallet: false, error: "No wallet detected" }));
       return;
     }
+    setState((prev) => ({ ...prev, hasWallet: true }));
 
     try {
-      const accounts = (await window.ethereum.request({
+      const accounts = (await window.ethereum!.request({
         method: "eth_accounts",
       })) as string[];
-      const chainId = (await window.ethereum.request({
+      const chainId = (await window.ethereum!.request({
         method: "eth_chainId",
       })) as string;
 
@@ -64,6 +68,7 @@ export function useWallet() {
           chainId: chainIdNum,
           isPolygon,
           isConnecting: false,
+          hasWallet: true,
           error: null,
         });
       }
@@ -98,6 +103,7 @@ export function useWallet() {
         chainId: chainIdNum,
         isPolygon,
         isConnecting: false,
+        hasWallet: true,
         error: null,
       });
     } catch (error) {
@@ -110,14 +116,15 @@ export function useWallet() {
   }, []);
 
   const disconnect = useCallback(() => {
-    setState({
+    setState((prev) => ({
+      ...prev,
       isConnected: false,
       address: null,
       chainId: null,
       isPolygon: false,
       isConnecting: false,
       error: null,
-    });
+    }));
   }, []);
 
   const switchToPolygon = useCallback(async () => {

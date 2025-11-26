@@ -147,7 +147,7 @@ function getFallbackRiskAnalysis(
   return {
     riskScore: Math.min(100, baseScore),
     reasoning:
-      "Risk score calculated based on pattern matching of transaction data and contract bytecode analysis. AI-enhanced analysis available when OpenAI is configured.",
+      "Risk score calculated based on pattern matching of transaction data and contract bytecode analysis. Enhanced analysis available when additional services are configured.",
     threats,
   };
 }

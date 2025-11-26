@@ -38,7 +38,7 @@ const features = [
     icon: <BarChart3 className="h-6 w-6" />,
     title: "Transaction Scoring",
     description:
-      "AI-powered risk scoring from 0-100 with detailed reasoning for every transaction.",
+      "Advanced risk scoring from 0-100 with detailed reasoning for every transaction.",
   },
   {
     icon: <Ban className="h-6 w-6" />,
@@ -56,8 +56,8 @@ const howItWorks = [
   },
   {
     icon: <Brain className="h-8 w-8" />,
-    title: "AI Analysis",
-    description: "Advanced AI models evaluate contract code, patterns, and risk signals.",
+    title: "Smart Analysis",
+    description: "Advanced algorithms evaluate contract code, patterns, and risk signals.",
   },
   {
     icon: <Zap className="h-8 w-8" />,
@@ -100,10 +100,10 @@ export default function LandingPage() {
                 Built on Polygon PoS
               </Badge>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Protect Your Web3 Wallet with AI
+                Protect Your Web3 Wallet
               </h1>
               <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
-                Real-time AI security layer that analyzes smart contracts, detects phishing, and
+                Real-time security layer that analyzes smart contracts, detects phishing, and
                 blocks malicious transactions before they drain your assets.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
@@ -161,7 +161,7 @@ export default function LandingPage() {
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-semibold mb-4">Key Features</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive protection powered by advanced AI and blockchain analysis.
+                Comprehensive protection powered by advanced algorithms and blockchain analysis.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -281,7 +281,7 @@ export default function LandingPage() {
               Start Protecting Your Wallet Today
             </h2>
             <p className="text-muted-foreground">
-              Connect your wallet and enable AI-powered protection in seconds.
+              Connect your wallet and enable smart protection in seconds.
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-4">
               <Link href="/dashboard">
@@ -300,7 +300,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="font-semibold">AI Smart Wallet Guardian</span>
+              <span className="font-semibold">Smart Wallet Guardian</span>
             </div>
             <div className="flex items-center gap-6">
               <a
